@@ -11,10 +11,21 @@ router.post('/post-helloWorld', function(req, res, next) {
 });
 
 router.get('/helloWorld', function(req, res, next) {
+  /*
+
+   */
   res.send('Hello World!');
 });
 
 router.delete('/helloWorld/:id', function(req, res, next) {
+  /*
+  #swagger.summary='this is a summary'
+  #swagger.description='this is a description'
+  #swagger.parameters['id'] = { description: 'Some description...'}
+  #swagger.responses[404] = { description: 'Not Found' }
+  #swagger.responses[502] = { description: 'Bad Gateway' }
+   */
+
   res.send('Deleting resource associated with id: ' + req.params.id);
 });
 

@@ -22,6 +22,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+const swaggerUI = require('swagger-ui-express');
+var swaggerOutput = require('./swagger-output.json')
+
+app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerOutput));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
